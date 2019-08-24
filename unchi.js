@@ -88,13 +88,37 @@ const runBF = code => {
 };
 
 (() => {
+    let flag = false;
+
     onload = () => {
         const button = document.querySelector('button');
         button.addEventListener('click', () => {
             const textarea = document.querySelectorAll('textarea');
             const source = textarea[0].value;
-            const result = runBF(utob(source));
-            textarea[1].value = `output:\n${result.output.join('')}\n\nmemories:\n${result.memories}`;
+
+            if (flag) {
+                const result = btou(source);
+                textarea[1].value = `output:\n${result}`;
+            } else {
+                const result = runBF(utob(source));
+                textarea[1].value = `output:\n${result.output.join('')}\n\nmemories:\n${result.memories}`;
+            }
+        });
+
+        document.body.addEventListener('keydown', event => {
+            if (event.keyCode === 16) {
+                button.innerText = 'Unchi-Lang に変換';
+                button.style.background = '#fc496d';
+                flag = true;
+            }
+        });
+
+        document.body.addEventListener('keyup', event => {
+            if (event.keyCode === 16) {
+                button.innerText = 'Unchi-Lang を実行';
+                button.style.background = '#0ac9b6';
+                flag = false;
+            }
         });
     };
 })();
