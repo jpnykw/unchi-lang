@@ -7,6 +7,8 @@ body {
     position: absolute;
     left: 50%;
     top: 50%;
+
+    overflow: hidden;
 }
 
 textarea {
@@ -20,7 +22,13 @@ textarea {
     border-radius: 10px;
     border: solid 2px #f3f3f3;
 
+    font-family: 'M PLUS 1p', sans-serif;
     font-size: 18px;
+    color: #171c20;
+}
+
+textarea:last-of-type {
+    height: 150px;
 }
 
 textarea::placeholder {
@@ -28,7 +36,15 @@ textarea::placeholder {
     left: 14px;
     top: 14px;
 
+    font-family: 'M PLUS 1p', sans-serif;
     color: #bbb;
+}
+
+canvas {
+    margin-top: 20px;
+
+    border-radius: 10px;
+    border: solid 2px #f3f3f3;
 }
 
 button {
@@ -39,9 +55,10 @@ button {
     border-radius: 100px;
     border: none;
 
+    font-family: 'M PLUS 1p', sans-serif;
     font-size: 23px;
     color: #fbfbfb;
 
-    margin: 40px 0;
+    margin: 20px 0;
     cursor: pointer;
 }
