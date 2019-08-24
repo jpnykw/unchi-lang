@@ -90,9 +90,9 @@ const runBF = code => {
             break;
         }
 
-        draw(memories);
     }
 
+    draw(memories, pointer);
     return {memories, output};
 };
 
@@ -108,7 +108,7 @@ const runBF = code => {
         canvas.width = 1000;
         canvas.height = 150;
 
-        draw = memories => {
+        draw = (memories, pointer) => {
             const width = canvas.width;
             const height = canvas.height;
             ctx.clearRect(0, 0, width, height);
@@ -127,15 +127,16 @@ const runBF = code => {
                         y: y * (memoryBoxSize + padding * 2) + memoryBoxSize / 2 - padding
                     };
 
-                    ctx.fillStyle = memories === undefined || memories[memoryIndex] === 0 ? '#e9e9e9' : '#0dc9b6';
+                    ctx.fillStyle = memories === undefined || (memories[memoryIndex] === 0 && memoryIndex !== pointer) ? '#e9e9e9' : memoryIndex === pointer ? '#fc496d' : '#0dc9b6';
                     ctx.fillRect(draw.x, draw.y, memoryBoxSize, memoryBoxSize);
 
                     // メモリを描画
                     const size = memories === undefined ? '-' : memories[memoryIndex];
-                    ctx.fillStyle = size === '-' || size === 0 ? '#c6c6c6' : '#363636';
+                    ctx.fillStyle = size === '-' || (size === 0 && memoryIndex !== pointer) ? '#c6c6c6' : '#262626';
                     ctx.textAlign = 'center';
                     ctx.font = `${memoryBoxSize - 5}px 'Montserrat', sans-serif`;
                     ctx.fillText(size, draw.x + memoryBoxSize / 2, draw.y + memoryBoxSize - padding * 5);
+
                     memoryIndex++;
                 }
             }
