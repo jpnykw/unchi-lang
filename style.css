@@ -8,7 +8,7 @@ body {
     left: 50%;
     top: 50%;
 
-    overflow: hidden;
+    user-select: none;
 }
 
 textarea {
@@ -29,6 +29,7 @@ textarea {
 
 textarea:last-of-type {
     height: 150px;
+    outline : none;
 }
 
 textarea::placeholder {
@@ -61,4 +62,6 @@ button {
 
     margin: 20px 0;
     cursor: pointer;
+
+    outline : none;
 }
