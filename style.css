@@ -1,0 +1,46 @@
+body {
+    background: #fbfbfb;
+    padding: 0;
+    margin: 0;
+
+    transform: translate(-50%, -50%);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+}
+
+textarea {
+    resize: none;
+    height : 300px;
+    width: 1000px;
+
+    padding: 0;
+    margin: 0;
+
+    border-radius: 10px;
+    border: solid 2px #f3f3f3;
+
+    font-size: 18px;
+}
+
+textarea::placeholder {
+    position: relative;
+    left: 14px;
+    top: 14px;
+
+    color: #bbb;
+}
+
+button {
+    height: 50px;
+    width: 1000px;
+
+    background: #12c9fe;
+    border-radius: 100px;
+    border: none;
+
+    font-size: 23px;
+    color: #fbfbfb;
+
+    margin: 30px 0;
+}
