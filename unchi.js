@@ -154,7 +154,7 @@ const runBF = code => {
                 const result = btou(source);
                 textarea[1].value = result; // `output:\n${result}`;
             } else {
-                const result = runBF(utob(source));
+                const result = runBF(source); //runBF(utob(source));
                 textarea[1].value = result.output.join(''); // `output:\n${result.output.join('')}\n\nmemories:\n${result.memories}`;
             }
         });
